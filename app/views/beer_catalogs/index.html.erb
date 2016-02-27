@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Beer Catalogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Beer name</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beer_catalogs.each do |beer_catalog| %>
+      <tr>
+        <td><%= beer_catalog.beer_name %></td>
+        <td><%= beer_catalog.price %></td>
+        <td><%= link_to 'Show', beer_catalog %></td>
+        <td><%= link_to 'Edit', edit_beer_catalog_path(beer_catalog) %></td>
+        <td><%= link_to 'Destroy', beer_catalog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beer catalog', new_beer_catalog_path %>

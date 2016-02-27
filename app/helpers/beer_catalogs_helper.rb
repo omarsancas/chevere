@@ -1,0 +1,2 @@
+module BeerCatalogsHelper
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beer name:</strong>
+  <%= @beer_catalog.beer_name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @beer_catalog.price %>
+</p>
+
+<%= link_to 'Edit', edit_beer_catalog_path(@beer_catalog) %> |
+<%= link_to 'Back', beer_catalogs_path %>
