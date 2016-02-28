@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228051325) do
+ActiveRecord::Schema.define(version: 20160228051700) do
 
   create_table "beer_catalogs", force: :cascade do |t|
     t.string   "beer_name",    limit: 255
@@ -73,7 +73,10 @@ ActiveRecord::Schema.define(version: 20160228051325) do
     t.string   "image_url",  limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "event_id",   limit: 4
   end
+
+  add_index "pictures", ["event_id"], name: "index_pictures_on_event_id", using: :btree
 
   create_table "product_types", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -109,6 +112,7 @@ ActiveRecord::Schema.define(version: 20160228051325) do
   add_foreign_key "beer_catalogs", "beer_types"
   add_foreign_key "guests", "drunk_levels"
   add_foreign_key "guests", "events"
+  add_foreign_key "pictures", "events"
   add_foreign_key "products", "product_types"
   add_foreign_key "users", "events"
 end
