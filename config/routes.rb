@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :events
+
   resources :beer_types
 
   resources :beer_catalogs

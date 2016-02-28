@@ -11,18 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227222535) do
+ActiveRecord::Schema.define(version: 20160228040038) do
 
   create_table "beer_catalogs", force: :cascade do |t|
-    t.string   "beer_name",  limit: 255
-    t.float    "price",      limit: 24
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "beer_name",    limit: 255
+    t.float    "price",        limit: 24
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "beer_type_id", limit: 4
   end
+
+  add_index "beer_catalogs", ["beer_type_id"], name: "index_beer_catalogs_on_beer_type_id", using: :btree
 
   create_table "beer_types", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "events", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
+    t.string   "cover_photo", limit: 255
+    t.datetime "start_time"
+    t.string   "place",       limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_foreign_key "beer_catalogs", "beer_types"
 end
