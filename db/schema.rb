@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228040847) do
+ActiveRecord::Schema.define(version: 20160228041306) do
 
   create_table "beer_catalogs", force: :cascade do |t|
     t.string   "beer_name",    limit: 255
@@ -54,10 +54,25 @@ ActiveRecord::Schema.define(version: 20160228040847) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "event_id",        limit: 4
+    t.integer  "drunk_level_id",  limit: 4
   end
 
+  add_index "guests", ["drunk_level_id"], name: "index_guests_on_drunk_level_id", using: :btree
   add_index "guests", ["event_id"], name: "index_guests_on_event_id", using: :btree
 
+  create_table "users", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.date     "birthday"
+    t.string   "gender",     limit: 255
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "avatar",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   add_foreign_key "beer_catalogs", "beer_types"
+  add_foreign_key "guests", "drunk_levels"
   add_foreign_key "guests", "events"
 end

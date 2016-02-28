@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+
   resources :drunk_levels
 
   resources :guests
