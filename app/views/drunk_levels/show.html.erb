@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @drunk_level.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @drunk_level.description %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @drunk_level.icon %>
+</p>
+
+<%= link_to 'Edit', edit_drunk_level_path(@drunk_level) %> |
+<%= link_to 'Back', drunk_levels_path %>

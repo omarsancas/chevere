@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :drunk_levels
+
   resources :guests
 
   resources :events
