@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :beer_types
+
   resources :beer_catalogs
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -30,6 +30,6 @@ test:
 
 production:
   <<: *default
-  database: sftrackerDBProd
+  database: chevereDB
   username: root
   password: root
