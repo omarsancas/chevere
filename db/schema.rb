@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160228040038) do
+ActiveRecord::Schema.define(version: 20160228040316) do
 
   create_table "beer_catalogs", force: :cascade do |t|
     t.string   "beer_name",    limit: 255
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 20160228040038) do
     t.string   "place",       limit: 255
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "profile_picture", limit: 255
+    t.string   "email",           limit: 255
+    t.string   "phone",           limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_foreign_key "beer_catalogs", "beer_types"

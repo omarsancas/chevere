@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :guests
+
   resources :events
 
   resources :beer_types
